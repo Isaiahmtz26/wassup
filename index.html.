@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Game</title>
+<style>
+body{
+    font-family: Arial;
+    text-align:center;
+    background:#222;
+    color:white;
+}
+
+#gameBox{
+    width:300px;
+    height:300px;
+    margin:auto;
+    background:#444;
+    position:relative;
+}
+
+#target{
+    width:40px;
+    height:40px;
+    background:red;
+    position:absolute;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Click the Box Game</h1>
+<p>Score: <span id="score">0</span></p>
+
+<div id="gameBox">
+<div id="target"></div>
+</div>
+
+<script>
+let score = 0
+const target = document.getElementById("target")
+
+function moveTarget(){
+    let x = Math.random()*260
+    let y = Math.random()*260
+    target.style.left = x + "px"
+    target.style.top = y + "px"
+}
+
+target.onclick = function(){
+    score++
+    document.getElementById("score").textContent = score
+    moveTarget()
+}
+
+moveTarget()
+</script>
+
+</body>
+</html>
